@@ -13,6 +13,10 @@ import {
   Divider,
 } from 'antd';
 import './App.less';
+import './test.less';
+import SiderDemo from './main'
+import Test from "./test";
+import Mytest from "./Mytest";
 
 const { Option } = Select;
 const { Title } = Typography;
@@ -72,7 +76,11 @@ const App = () => (
         </Space>
       </Form.Item>
     </Form>
+    {/*<SiderDemo></SiderDemo>*/}
+    <Mytest></Mytest>
+
   </>
+
 );
 
 export default App;
