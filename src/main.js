@@ -7,7 +7,8 @@ import {
     UserOutlined,
 } from '@ant-design/icons';
 import React,{Component} from 'react';
-import './test.less';
+// import './test.less';
+import './main.less';
 
 import App from "./App";
 // import './mainIndex.less';
