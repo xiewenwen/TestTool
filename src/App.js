@@ -15,8 +15,11 @@ import {
 
 import './App.less';
 import './test.less';
-import SiderDemo from './main'
+import SiderDemo from './main';
 import Mytest from "./Mytest";
+import  './case/CaseForm';
+import './case/CaseList';
+import CaseForm from "./case/CaseForm";
 
 const { Option } = Select;
 const { Title } = Typography;
@@ -77,6 +80,8 @@ const App = () => (
     {/*  </Form.Item>*/}
     {/*</Form>*/}
     <SiderDemo></SiderDemo>
+
+
     {/*登录样式*/}
     {/*<Mytest></Mytest>*/}
 

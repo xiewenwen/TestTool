@@ -9,6 +9,7 @@ import {
 import React,{Component} from 'react';
 // import './test.less';
 import './main.less';
+import CaseForm from "./case/CaseForm";
 
 import App from "./App";
 // import './mainIndex.less';
@@ -61,7 +62,9 @@ class SiderDemo extends React.Component {
                             <Breadcrumb.Item>Bill</Breadcrumb.Item>
                         </Breadcrumb>
                         <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                            Bill is a cat.
+                            {/*Bill is a cat.*/}
+                            <CaseForm></CaseForm>
+
                         </div>
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
