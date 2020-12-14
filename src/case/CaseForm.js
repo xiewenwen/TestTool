@@ -33,7 +33,6 @@ function CaseForm(props) {
     const onChange = e => {
         console.log('radio checked', e.target.value);
         setValueRadio(e.target.value);
-        // e.target.value='select'?setValueShow(2):setValueShow(1);
         if (valueRadio ==='input'){
             setValueShow(2);
         }else{
