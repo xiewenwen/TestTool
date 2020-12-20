@@ -72,6 +72,13 @@ function CaseForm(props) {
         setValueRadio(e.target.value);
         if (valueRadio ==='input'){
             setValueShow(2);
+            // form.setFields();
+            // return(
+            //     <div>
+            //         <span>happly</span>
+            //     </div>
+            // );
+
         }else{
             setValueShow(1);
         }
@@ -125,7 +132,6 @@ function CaseForm(props) {
     return (
         <div><Tabs defaultActiveKey="1" centered>
             <TabPane tab="新增/编辑" key="1" >
-                {/*Content of Tab Pane 1*/}
                 <Form form={form} {...layout} name="control-ref" onFinish={onFinish}>
                     <Form.Item name="testBefore" label="前置条件" rules={[{required: true}]}>
                         <Input/>
@@ -133,7 +139,7 @@ function CaseForm(props) {
                     <Form.List name="sights">
                         {(fields, { add, remove }) => (
                             <>
-                                {fields.map(field => (
+                                {fields.map((field,index)=> (
                                     <Space key={field.key} align="baseline">
                                         <Form.Item name={[field.name, 'ziduan']} fieldKey={[field.fieldKey, 'ziduan']} label="字段" rules={[{required: true}]}>
                                             <Input/>
@@ -144,16 +150,17 @@ function CaseForm(props) {
                                                 <Radio value={'select'}>选择框</Radio>
                                             </Radio.Group>
                                         </Form.Item>
-                                        <Form.Item name={[field.name, 'testpoint']} fieldKey={[field.fieldKey, 'testpoint']} label="测试点">
+                                        <Form.Item name={[field.name,'testpoint']} fieldKey={[field.fieldKey, 'testpoint']} label="测试点">
                                             <Checkbox.Group options={options} onChange={onShowNum}/>
                                         </Form.Item>
                                         {show === 2 ?
-                                            <div><Form.Item name={[field.name, 'min']} fieldKey={[field.fieldKey, 'min']} label='最小'><InputNumber name="min"></InputNumber></Form.Item>
-                                                <Form.Item name={[field.name, 'max']} fieldKey={[field.fieldKey, 'max']} label='最大'><InputNumber name="max"></InputNumber></Form.Item></div>:null}
+                                            <div><Form.Item name={[field.name, `min[${index}]`]} fieldKey={[field.fieldKey, 'min']} label='最小'><InputNumber name="min"></InputNumber></Form.Item>
+                                                <Form.Item name={[field.name, `max[${index}]`]} fieldKey={[field.fieldKey, 'max']} label='最大'><InputNumber name="max"></InputNumber></Form.Item></div>:null}
                                         {valueShow === 2 ?
                                             <Form.Item name={[field.name, 'values']} fieldKey={[field.fieldKey, 'values']} label='可选值'>
                                                 <Input/>
                                             </Form.Item> :null}
+
                                         <Form.Item
                                             noStyle
                                             shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}
