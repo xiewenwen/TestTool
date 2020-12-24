@@ -6,6 +6,7 @@ import axios from "axios";
 import Name from "./name";
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import './caseform.css'
+import Word from "./Word";
 
 const {TabPane} = Tabs;
 // const {Option} = Select;
@@ -255,6 +256,7 @@ function CaseForm(props) {
                 </Form>
             </TabPane>
             <TabPane tab="删除" key="2">
+                <Word></Word>
             </TabPane>
             <TabPane tab="查询" key="3">
                 Content of Tab Pane 3
