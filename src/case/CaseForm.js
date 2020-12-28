@@ -138,9 +138,8 @@ function CaseForm(props) {
     };
 
     return (
-        <div><Tabs defaultActiveKey="1" centered>
-            <TabPane tab="新增/编辑" key="1">
-                <Form form={form} {...layout} layout="horizontal"  name="control-ref" onFinish={onFinish}>
+        <div>
+            <Form form={form} {...layout} layout="horizontal"  name="control-ref" onFinish={onFinish}>
                     <Form.Item name="testBefore" label="前置条件" rules={[{required: true}]}>
                         <Input/>
                     </Form.Item>
@@ -149,7 +148,7 @@ function CaseForm(props) {
                             <>
                                 {fields.map((field, index) => <Child field={field} key={index} remove={remove}/>)}
 
-                                <Form.Item>
+                                <Form.Item {...tailLayout}>
                                     <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined/>}>
                                         新增字段
                                     </Button>
@@ -164,19 +163,9 @@ function CaseForm(props) {
                         <Button htmlType="button" onClick={onReset}>
                             重置
                         </Button>
-                        {/*<Button type="link" htmlType="button" onClick={onFill}>*/}
-                        {/*    Fill form*/}
-                        {/*</Button>*/}
                     </Form.Item>
                 </Form>
-            </TabPane>
-            <TabPane tab="删除" key="2">
-                <Word/>
-            </TabPane>
-            <TabPane tab="查询" key="3">
-                Content of Tab Pane 3
-            </TabPane>
-        </Tabs></div>
+            </div>
     );
 }
 

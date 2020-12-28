@@ -1,5 +1,8 @@
 import { Table, Tag, Space } from 'antd';
 import React, {Component, useState} from 'react';
+import { Modal, Button } from 'antd';
+import DelForm from "./delForm";
+import CaseForm from "./CaseForm";
 
 const columns = [
     {
@@ -83,8 +86,34 @@ const data = [
 ];
 
 function CaseList(props){
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [type,setType] =useState(1);
+
+    const showModal = () => {
+        // console.log('type=====',value)
+        // setType(value);
+        setIsModalVisible(true);
+
+    };
+
+    const handleOk = () => {
+        setIsModalVisible(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
     return(
         <div>
+            <Button type="primary" onClick={showModal}>
+                新增/编辑
+            </Button>
+            <Button type="primary" onClick={showModal}>
+                删除
+            </Button>
+            <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                <DelForm></DelForm>
+            </Modal>
             <Table columns={columns} dataSource={data} />
         </div>
     );

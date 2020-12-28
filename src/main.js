@@ -10,6 +10,8 @@ import React, {useState} from 'react';
 import './main.less';
 import CaseForm from "./case/CaseForm";
 import CaseList from "./case/CaseList";
+import DelForm from "./case/delForm";
+import SearchForm from "./case/searchForm";
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -30,17 +32,17 @@ function SiderDemo(){
         <Layout style={{ minHeight: '100vh' }}>
             <Sider collapsible collapsed={state} onCollapse={onCollapse}>
                 <div className="logo" />
-                <Menu theme="dark" onClick={handleClick} defaultSelectedKeys={['1']} mode="inline">
+                <Menu theme="dark" onClick={handleClick} defaultSelectedKeys={['2']} mode="inline">
                     <Menu.Item key="1" icon={<PieChartOutlined />}>
                         用例生成
                     </Menu.Item>
                     <Menu.Item key="2" icon={<DesktopOutlined />}>
                         用例列表
                     </Menu.Item>
-                    <SubMenu key="sub1" icon={<UserOutlined />} title="User">
-                        <Menu.Item key="3">Tom</Menu.Item>
-                        <Menu.Item key="4">Bill</Menu.Item>
-                        <Menu.Item key="5">Alex</Menu.Item>
+                    <SubMenu key="sub1" icon={<UserOutlined />} title="用例生成">
+                        <Menu.Item key="3">新增/编辑</Menu.Item>
+                        <Menu.Item key="4">删除</Menu.Item>
+                        <Menu.Item key="5">查询</Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
                         <Menu.Item key="6">Team 1</Menu.Item>
@@ -54,12 +56,12 @@ function SiderDemo(){
             <Layout className="site-layout">
                 <Header className="site-layout-background" style={{ padding: 0 }} />
                 <Content style={{ margin: '0 16px' }}>
-                    {/*<Breadcrumb style={{ margin: '16px 0' }}>*/}
-                    {/*    <Breadcrumb.Item>User</Breadcrumb.Item>*/}
-                    {/*    <Breadcrumb.Item>Bill</Breadcrumb.Item>*/}
-                    {/*</Breadcrumb>*/}
                     <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                        {menu==="1"?<CaseForm></CaseForm>:<CaseList></CaseList>}
+                        {menu==="1"?<CaseForm></CaseForm>:null}
+                        {menu==="2"?<CaseList></CaseList>:null}
+                        {menu==="3"?<CaseForm></CaseForm>:null}
+                        {menu==="4"?<DelForm></DelForm>:null}
+                        {menu==='5'?<SearchForm></SearchForm>:null}
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>everyday is mayday</Footer>
